@@ -13,8 +13,27 @@ export function BarChart(): ReactElement {
       title: {
         text: 'Flight Time by Month',
       },
-      series: [],
-      axes: [],
+      series: [
+        {
+          type: 'bar',
+          xKey: 'month',
+          yKey: 'time',
+          yName: 'Flight Time',
+        },
+      ],
+      axes: [
+        {
+          type: 'number',
+          position: 'left',
+        },
+        {
+          type: 'category',
+          position: 'bottom',
+          label: {
+            formatter: (params) => data[params.index].label,
+          },
+        },
+      ],
       theme,
     };
   }, [data]);
