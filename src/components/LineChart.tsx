@@ -10,11 +10,34 @@ export default function LineChart(): ReactElement {
   const options: AgChartOptions = useMemo(() => {
     return {
       data,
-      series: [],
-      axes: [],
+      title: {
+        text: 'Flight Time',
+      },
+      series: [
+        {
+          type: 'line',
+          xKey: 'date',
+          yKey: 'time',
+          yName: 'Flight Time',
+        },
+      ],
+      axes: [
+        {
+          type: 'number',
+          position: 'left',
+        },
+        {
+          type: 'time',
+          position: 'bottom',
+          interval: { step: time.month },
+          label: {
+            format: '%b %Y',
+          },
+        },
+      ],
       theme,
     };
   }, [data]);
 
-  return <></>;
+  return <AgCharts options={options} />;
 }
