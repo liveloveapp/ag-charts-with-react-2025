@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+}
+
+.header {
+  background-color: #282c34;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.header > h1 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex: 1 auto;
+  padding: 16px;
+}
+
+.chart {
+  flex: 1 auto;
+}
