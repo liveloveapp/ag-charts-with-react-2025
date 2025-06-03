@@ -4,21 +4,22 @@ import { ReactElement, useMemo } from 'react';
 import { theme } from '../constants/theme.ts';
 import { useRollupData } from '../hooks/useRollupData.ts';
 
-export function PieChart(): ReactElement {
+export function DonutChart(): ReactElement {
   const data = useRollupData();
 
   const options: AgChartOptions = useMemo(() => {
     return {
       data,
       title: {
-        text: 'Flight Time by Month',
+        text: 'Flight Time by Month (Donut)',
       },
       series: [
         {
-          type: 'pie',
+          type: 'donut',
           angleKey: 'time',
           legendItemKey: 'label',
           calloutLabelKey: 'label',
+          innerRadiusRatio: 0.6,
         },
       ],
       theme,

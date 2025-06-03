@@ -1,14 +1,19 @@
 import { ChangeEvent, useState } from 'react';
+import './App.css';
 import { BarChart } from './components/BarChart.tsx';
+import { BubbleChart } from './components/BubbleChart.tsx';
+import { ComboChart } from './components/ComboChart.tsx';
+import { DonutChart } from './components/DonutChart.tsx';
 import LineChart from './components/LineChart';
 import { PieChart } from './components/PieChart.tsx';
-
-import './App.css';
 
 enum ChartType {
   Line = 'line',
   Bar = 'bar',
   Pie = 'pie',
+  Combo = 'combo',
+  Donut = 'donut',
+  Bubble = 'bubble',
 }
 
 function App() {
@@ -27,6 +32,9 @@ function App() {
             <option value={ChartType.Line}>Line Chart</option>
             <option value={ChartType.Bar}>Bar Chart</option>
             <option value={ChartType.Pie}>Pie Chart</option>
+            <option value={ChartType.Combo}>Combo Chart</option>
+            <option value={ChartType.Donut}>Donut Chart</option>
+            <option value={ChartType.Bubble}>Bubble Chart</option>
           </select>
         </div>
       </div>
@@ -35,6 +43,9 @@ function App() {
           {chartType === ChartType.Line && <LineChart />}
           {chartType === ChartType.Bar && <BarChart />}
           {chartType === ChartType.Pie && <PieChart />}
+          {chartType === ChartType.Combo && <ComboChart />}
+          {chartType === ChartType.Donut && <DonutChart />}
+          {chartType === ChartType.Bubble && <BubbleChart />}
         </div>
       </div>
     </div>
