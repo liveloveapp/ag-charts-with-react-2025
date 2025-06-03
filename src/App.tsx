@@ -17,7 +17,7 @@ enum ChartType {
 }
 
 function App() {
-  const [chartType, setChartType] = useState<ChartType>(ChartType.Line);
+  const [chartType, setChartType] = useState<ChartType>(ChartType.Bar);
 
   const handleChartTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setChartType(event.target.value as ChartType);
