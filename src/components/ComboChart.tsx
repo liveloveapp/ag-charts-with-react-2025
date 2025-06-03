@@ -13,8 +13,39 @@ export function ComboChart(): ReactElement {
       title: {
         text: 'Flight Time Analysis',
       },
-      series: [],
-      axes: [],
+      series: [
+        {
+          type: 'bar',
+          xKey: 'month',
+          yKey: 'time',
+          yName: 'Monthly Flight Time',
+        },
+        {
+          type: 'line',
+          xKey: 'month',
+          yKey: 'time',
+          yName: 'Trend',
+          marker: {
+            enabled: true,
+          },
+        },
+      ],
+      axes: [
+        {
+          type: 'number',
+          position: 'left',
+          title: {
+            text: 'Flight Time (hours)',
+          },
+        },
+        {
+          type: 'category',
+          position: 'bottom',
+          label: {
+            formatter: (params) => data[params.index].label,
+          },
+        },
+      ],
       theme,
     };
   }, [data]);
