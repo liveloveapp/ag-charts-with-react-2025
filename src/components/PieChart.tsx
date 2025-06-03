@@ -13,7 +13,14 @@ export function PieChart(): ReactElement {
       title: {
         text: 'Flight Time by Month',
       },
-      series: [],
+      series: [
+        {
+          type: 'pie',
+          angleKey: 'time',
+          legendItemKey: 'label',
+          calloutLabelKey: 'label',
+        },
+      ],
       theme,
     };
   }, [data]);
