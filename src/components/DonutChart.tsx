@@ -11,9 +11,17 @@ export function DonutChart(): ReactElement {
     return {
       data,
       title: {
-        text: 'Flight Time by Month',
+        text: 'Flight Time by Month (Donut)',
       },
-      series: [],
+      series: [
+        {
+          type: 'donut',
+          angleKey: 'time',
+          legendItemKey: 'label',
+          calloutLabelKey: 'label',
+          innerRadiusRatio: 0.6,
+        },
+      ],
       theme,
     };
   }, [data]);
