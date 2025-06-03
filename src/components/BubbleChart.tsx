@@ -40,8 +40,47 @@ export function BubbleChart(): ReactElement {
       title: {
         text: 'Aircraft Usage Analysis',
       },
-      series: [],
-      axes: [],
+      series: [
+        {
+          type: 'bubble',
+          xKey: 'flight_count',
+          yKey: 'total_time',
+          sizeKey: 'avg_time',
+          xName: 'Number of Flights',
+          yName: 'Total Flight Time',
+          sizeName: 'Average Flight Time',
+          title: 'Aircraft',
+          tooltip: {
+            renderer: (params) => {
+              const datum = params.datum as AircraftStats;
+              return {
+                title: datum.aircraft_id,
+                content: [
+                  `Number of Flights: ${datum.flight_count}`,
+                  `Total Time: ${datum.total_time.toFixed(1)} hours`,
+                  `Average Time: ${datum.avg_time.toFixed(1)} hours`,
+                ].join('<br />'),
+              };
+            },
+          },
+        },
+      ],
+      axes: [
+        {
+          type: 'number',
+          position: 'left',
+          title: {
+            text: 'Total Flight Time (hours)',
+          },
+        },
+        {
+          type: 'number',
+          position: 'bottom',
+          title: {
+            text: 'Number of Flights',
+          },
+        },
+      ],
       theme,
     };
   }, [aircraftStats]);
